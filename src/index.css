@@ -55,7 +55,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #75b908;
 }
 button:focus,
 button:focus-visible {
@@ -71,7 +71,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #1dd69f;
   }
 }
 
@@ -130,7 +130,7 @@ button:focus-visible {
 .tile.present {
   background-color: var(--present);
   border-color: var(--present);
-  color: white;
+  color: rgb(18, 15, 180);
 }
 
 .tile.absent {
