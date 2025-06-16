@@ -1,41 +1,27 @@
-.keyboard {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 10px;
-  align-items: center;
-}
+const Keyboard = ({ onKeyPress, letterStatuses }) => {
+  const rows = [
+    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '⌫']
+  ];
 
-.keyboard-row {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-}
+  return (
+    <div className="keyboard">
+      {rows.map((row, i) => (
+        <div key={i} className="keyboard-row">
+          {row.map((key) => (
+            <button
+              key={key}
+              className={`key ${letterStatuses[key] || ''}`}
+              onClick={() => onKeyPress(key)}
+            >
+              {key}
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
-.key {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 58px;
-  border-radius: 4px;
-  border: none;
-  background-color: #d3d6da;
-  font-weight: bold;
-  cursor: pointer;
-  text-transform: uppercase;
-  color: var(--text-color, #000);
-  font-size: 1.1rem;
-  transition: background-color 0.2s ease;
-  padding: 0 10px; /* Make room for longer text like "ENTER" */
-}
-
-/* Optional: Make special keys wider */
-.key.enter {
-  min-width: 64px;
-}
-
-.key.backspace {
-  min-width: 64px;
-}
-'
+export default Keyboard; 
